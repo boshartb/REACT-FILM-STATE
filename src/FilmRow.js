@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import FilmPoster from './FilmPoster'
+import Fave from './Fave';
 
 class FilmRow extends Component {
   render() {
@@ -9,13 +10,17 @@ class FilmRow extends Component {
 
     return (
       <div className="film-row">
-        <FilmPoster poster_path={ this.props.film.poster_path } />
+        <FilmPoster poster_path={this.props.film.poster_path} />
 
         <div className="film-summary">
-          <h1>{ this.props.film.title }</h1>
-          <p>{ year }</p>
+          <h1>{this.props.film.title}</h1>
+          <p>{year}</p>
         </div>
+
+        <Fave > <button onClick={this.handleClick} ></button></Fave>
+
       </div>
+
     );
   }
 }
