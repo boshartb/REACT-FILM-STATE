@@ -4,12 +4,17 @@ import FilmPoster from './FilmPoster'
 import Fave from './Fave';
 
 class FilmRow extends Component {
+
+  handleDetailsClick() {
+    console.log("Fetching details for " + this.props.film.title)
+  }
+
   render() {
 
     let year = new Date(this.props.film.release_date).getFullYear()
 
     return (
-      <div className="film-row">
+      <div className="film-row" onClick={() => this.handleDetailsClick()}>
         <FilmPoster poster_path={this.props.film.poster_path} />
 
         <div className="film-summary">
@@ -17,7 +22,7 @@ class FilmRow extends Component {
           <p>{year}</p>
         </div>
 
-        <Fave > <button onClick={this.handleClick} ></button></Fave>
+        <Fave ></Fave>
 
       </div>
 
