@@ -17,13 +17,27 @@ class Fave extends Component {
         //4.4 set state in event handler
         this.setState((state, props) => {
             return { isFave: !state.isFave }
+
         })
+
+
     }
 
-    render() {
+    newClass = (e) => {
+        if (this.state.isFave == false) {
+            return 'film-row-fave remove_from_queue';
+        } else {
+            return 'film-row-fave add_to_queue'
+        }
+    }
 
+
+
+
+    render() {
+        console.log(this.newClass())
         return (
-            <div onClick={this.handleClick} className="film-row-fave add_to_queue">
+            <div onClick={this.handleClick} className={this.newClass()}>
                 <p className="material-icons">add_to_queue</p>
             </div>
         );
